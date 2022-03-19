@@ -1,0 +1,18 @@
+{
+  "CONTRACT_ADDRESS": "0x006906C27948b6BB03d8b7E6A21A4C9413ffFa4d",
+  "SCAN_LINK": "https://mumbai.polygonscan.com/address/0x006906c27948b6bb03d8b7e6a21a4c9413fffa4d",
+  "NETWORK": {
+    "NAME": "Mumbai Testnet",
+    "SYMBOL": "Matic",
+    "ID": 80001
+  },
+  "NFT_NAME": "HANDSOFF-TEST1",
+  "SYMBOL": "HANDSOFF-TEST1",
+  "MAX_SUPPLY": 5,
+  "WEI_COST": 80000000000000000,
+  "DISPLAY_COST": 0.08,
+  "GAS_LIMIT": 285000,
+  "MARKETPLACE": "Opeansea",
+  "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/handsoff-test1",
+  "SHOW_BACKGROUND": true
+}
