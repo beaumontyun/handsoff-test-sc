@@ -203,15 +203,21 @@ function App() {
         style={{ padding: 24, backgroundColor: "var(--primary)" }}
         image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
       >
+        {/* Company logo - redirect to OpenSea */}
         <a href={CONFIG.MARKETPLACE_LINK}>
           <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
         </a>
         <s.SpacerSmall />
+        
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
-          <s.Container flex={1} jc={"center"} ai={"center"}>
+          {/* Ugly styling */}
+          {/* <s.Container flex={1} jc={"center"} ai={"center"}>
             <StyledImg alt={"example"} src={"/config/images/example.gif"} />
-          </s.Container>
+          </s.Container> */}
+
           <s.SpacerLarge />
+
+          {/* Main body */}
           <s.Container
             flex={2}
             jc={"center"}
@@ -224,6 +230,8 @@ function App() {
               boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
             }}
           >
+
+            {/* display current available supply + the total supply */}
             <s.TextTitle
               style={{
                 textAlign: "center",
@@ -234,6 +242,8 @@ function App() {
             >
               {data.totalSupply} / {CONFIG.MAX_SUPPLY}
             </s.TextTitle>
+
+            {/* user's address */}
             <s.TextDescription
               style={{
                 textAlign: "center",
@@ -244,21 +254,13 @@ function App() {
                 {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
               </StyledLink>
             </s.TextDescription>
+
+            {/* Roadmap button */}
             <span
               style={{
                 textAlign: "center",
               }}
             >
-              <StyledButton
-                onClick={(e) => {
-                  window.open("/config/roadmap.pdf", "_blank");
-                }}
-                style={{
-                  margin: "5px",
-                }}
-              >
-                Roadmap
-              </StyledButton>
               <StyledButton
                 style={{
                   margin: "5px",
@@ -271,7 +273,11 @@ function App() {
               </StyledButton>
             </span>
             <s.SpacerSmall />
+
+            {/* Main body messages */}
             {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
+
+              // Condition 1 - sales terminate message
               <>
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
@@ -289,22 +295,32 @@ function App() {
                 </StyledLink>
               </>
             ) : (
+
+              // Condition 2 - sales description
               <>
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
+
+                  {/* Description of goods and cost */}
                   1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
                   {CONFIG.NETWORK.SYMBOL}.
                 </s.TextTitle>
                 <s.SpacerXSmall />
+
+                {/* Gas fees */}
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
                   Excluding gas fees.
                 </s.TextDescription>
                 <s.SpacerSmall />
+
+                {/* Connect to Metamask */}
                 {blockchain.account === "" ||
                 blockchain.smartContract === null ? (
+
+                  // Condition 1
                   <s.Container ai={"center"} jc={"center"}>
                     <s.TextDescription
                       style={{
@@ -339,6 +355,8 @@ function App() {
                     ) : null}
                   </s.Container>
                 ) : (
+
+                  // Condition 2
                   <>
                     <s.TextDescription
                       style={{
@@ -350,6 +368,8 @@ function App() {
                     </s.TextDescription>
                     <s.SpacerMedium />
                     <s.Container ai={"center"} jc={"center"} fd={"row"}>
+
+                      {/* minus */}
                       <StyledRoundButton
                         style={{ lineHeight: 0.4 }}
                         disabled={claimingNft ? 1 : 0}
@@ -361,6 +381,8 @@ function App() {
                         -
                       </StyledRoundButton>
                       <s.SpacerMedium />
+
+                      {/* Actual amount to mint */}
                       <s.TextDescription
                         style={{
                           textAlign: "center",
@@ -370,6 +392,8 @@ function App() {
                         {mintAmount}
                       </s.TextDescription>
                       <s.SpacerMedium />
+
+                      {/* plus */}
                       <StyledRoundButton
                         disabled={claimingNft ? 1 : 0}
                         onClick={(e) => {
@@ -381,6 +405,8 @@ function App() {
                       </StyledRoundButton>
                     </s.Container>
                     <s.SpacerSmall />
+
+                    {/* Execute buy option */}
                     <s.Container ai={"center"} jc={"center"} fd={"row"}>
                       <StyledButton
                         disabled={claimingNft ? 1 : 0}
@@ -399,16 +425,22 @@ function App() {
             )}
             <s.SpacerMedium />
           </s.Container>
+
           <s.SpacerLarge />
-          <s.Container flex={1} jc={"center"} ai={"center"}>
+
+          {/* Ugly styling */}
+          {/* <s.Container flex={1} jc={"center"} ai={"center"}>
             <StyledImg
               alt={"example"}
               src={"/config/images/example.gif"}
               style={{ transform: "scaleX(-1)" }}
             />
-          </s.Container>
+          </s.Container> */}
         </ResponsiveWrapper>
+
         <s.SpacerMedium />
+
+        {/* Disclaimer info */}
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
           <s.TextDescription
             style={{
@@ -416,9 +448,10 @@ function App() {
               color: "var(--primary-text)",
             }}
           >
-            Please make sure you are connected to the right network (
-            {CONFIG.NETWORK.NAME} Mainnet) and the correct address. Please note:
-            Once you make the purchase, you cannot undo this action.
+            Please connect to the correct network (
+            {CONFIG.NETWORK.NAME} Mainnet) with the correct address. <br />
+            Note:
+            Once purchase is made, you cannot undo this action.
           </s.TextDescription>
           <s.SpacerSmall />
           <s.TextDescription
@@ -426,9 +459,10 @@ function App() {
               textAlign: "center",
               color: "var(--primary-text)",
             }}
+            className="text-black"
           >
-            We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
-            successfully mint your NFT. We recommend that you don't lower the
+            Gas limit is set to {CONFIG.GAS_LIMIT} to
+            successfully mint the NFT. We recommend you do not lower the
             gas limit.
           </s.TextDescription>
         </s.Container>

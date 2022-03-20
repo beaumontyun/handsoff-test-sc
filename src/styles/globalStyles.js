@@ -10,6 +10,7 @@ export const Screen = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
 `;
 
 // Used for providing space between components
@@ -48,6 +49,7 @@ export const Container = styled.div`
   background-image: ${({ image }) => (image ? `url(${image})` : "none")};
   background-size: cover;
   background-position: center;
+  font-family: 'Montserrat', sans-serif;
 `;
 
 export const TextTitle = styled.p`
@@ -55,18 +57,21 @@ export const TextTitle = styled.p`
   font-size: 22px;
   font-weight: 500;
   line-height: 1.6;
+  font-family: 'Montserrat', sans-serif;
 `;
 
 export const TextSubTitle = styled.p`
   color: var(--primary-text);
   font-size: 18px;
   line-height: 1.6;
+  font-family: 'Montserrat', sans-serif;
 `;
 
 export const TextDescription = styled.p`
   color: var(--primary-text);
   font-size: 16px;
   line-height: 1.6;
+  font-family: 'Montserrat', sans-serif;
 `;
 
 export const StyledClickable = styled.div`
